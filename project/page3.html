@@ -1,0 +1,930 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="css/p2.css" />
+        <script src="./handler.js" defer></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Oswald"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Noto+Serif&amp;display=swap"
+            rel="stylesheet"
+        />
+        <title>Page 3</title>
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <h1>भारतीय प्रौद्योगिकी संस्थान पटना</h1>
+                <h1>Indian Institute of Technology Patna</h1>
+            </div>
+        </header>
+        <main>
+            <div class="Blinkingtext">
+                <h2>Application for Faculty Position</h2>
+            </div>
+            <div class="box">
+                <div class="row">
+                    <div class="welcome">
+                        <div class="welcome-name" style="font-size: 20px">
+                            Welcome : John Doe
+                        </div>
+
+                        <div class="logout">
+                            <div class="Dashboard">
+                                <div class="Logoutbutton">
+                                    <a onclick="log_out()"
+                                        href="#"
+                                        style="
+                                            color: #eee;
+                                            font-family: 'Helvetica Neue',
+                                                Helvetica, Arial, sans-serif;
+                                            font-size: 12px;
+                                            padding: 5px 10px;
+                                            text-decoration: none;
+                                        "
+                                        >Logout</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <h4>3. Employment Details</h4>
+
+                <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+                    <legend>(A) Present Employment</legend>
+                    <form>
+                        <div class="panel-body">
+                            <div class="twoInARow">
+                                <div class="inputBox">
+                                    <label for="present_position"
+                                        >Position:</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="present_position"
+                                        name="present_position"
+                                        required
+                                    /><br />
+                                </div>
+                                <div class="inputBox">
+                                    <label for="present_organization"
+                                        >Organization /Institution:</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="present_organization"
+                                        name="present_organization"
+                                        required
+                                    /><br />
+                                </div>
+                            </div>
+                            <div class="twoInARow">
+                                <div class="inputBox">
+                                    <label for="present_status">Status:</label>
+                                    <input
+                                        type="text"
+                                        id="present_status"
+                                        name="present_status"
+                                        required
+                                    /><br />
+                                </div>
+                                <div class="inputBox">
+                                    <label for="present_join_date"
+                                        >Date of Joining:</label
+                                    >
+                                    <input
+                                        type="date"
+                                        id="present_join_date"
+                                        name="present_join_date"
+                                        required
+                                    /><br />
+                                </div>
+                            </div>
+                            <div class="twoInARow">
+                                <div class="inputBox">
+                                    <label for="present_leave_date"
+                                        >Date of Leaving:</label
+                                    >
+                                    <input
+                                        type="date"
+                                        id="present_leave_date"
+                                        name="present_leave_date"
+                                        placeholder="Continue if working"
+                                    /><br />
+                                </div>
+                                <div class="inputBox">
+                                    <label for="present_duration"
+                                        >Duration (in years & months):</label
+                                    >
+                                    <input
+                                        type="text"
+                                        id="present_duration"
+                                        name="present_duration"
+                                        required
+                                    /><br />
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </section>
+
+                <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+                    <legend>
+                        (B) Employment History (After PhD, Starting with Latest)
+                        <button
+                            id="add_more_education"
+                            style="
+                                background-color: red;
+                                color: white;
+                                font-size: 12px;
+                                font-family: 'Oswald', sans-serif;
+                                border: transparent;
+                            "
+                        >
+                            Add More
+                        </button>
+                    </legend>
+                    <div class="panel-body">
+                        <table class="dataTable" id = "table1">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="p3-t1-c1">S.No.</th>
+                                    <th class="p3-t1-c2">Position</th>
+                                    <th class="p3-t1-c3">
+                                        Organization/Institution
+                                    </th>
+                                    <th class="p3-t1-c4">Date of Joining</th>
+                                    <th class="p3-t1-c5">Date of Leaving</th>
+                                    <th class="p3-t1-c6">
+                                        Duration (in years & months)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p3-t1-c1"><p>1</p></td>
+                                    <td class="p3-t1-c2">
+                                        <input
+                                            type="text"
+                                            id="position1"
+                                            name="position1"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c3">
+                                        <input
+                                            type="text"
+                                            id="organization1"
+                                            name="organization1"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c4">
+                                        <input
+                                            type="date"
+                                            id="join_date1"
+                                            name="join_date1"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c5">
+                                        <input
+                                            type="date"
+                                            id="leave_date1"
+                                            name="leave_date1"
+                                            placeholder="Continue if working"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c6">
+                                        <input
+                                            type="text"
+                                            id="duration1"
+                                            name="duration1"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t1-c1"><p>2</p></td>
+                                    <td class="p3-t1-c2">
+                                        <input
+                                            type="text"
+                                            id="position2"
+                                            name="position2"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c3">
+                                        <input
+                                            type="text"
+                                            id="organization2"
+                                            name="organization2"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c4">
+                                        <input
+                                            type="date"
+                                            id="join_date2"
+                                            name="join_date2"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c5">
+                                        <input
+                                            type="date"
+                                            id="leave_date2"
+                                            name="leave_date2"
+                                            placeholder="Continue if working"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c6">
+                                        <input
+                                            type="text"
+                                            id="duration2"
+                                            name="duration2"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+                    <legend>
+                        (C) Teaching Experience (After PhD)
+                        <button
+                            id="add_more_education"
+                            style="
+                                background-color: red;
+                                color: white;
+                                font-size: 12px;
+                                font-family: 'Oswald', sans-serif;
+                                border: transparent;
+                            "
+                        >
+                            Add More
+                        </button>
+                    </legend>
+                    <div class="panel-body">
+                        <table id="teaching_experience_table" class="dataTable">
+                            <thead>
+                                <tr>
+                                    <th class="p3-t2-c1">S.No.</th>
+                                    <th class="p3-t2-c2">Position</th>
+                                    <th class="p3-t2-c3">Employer</th>
+                                    <th class="p3-t2-c4">Course Taught</th>
+                                    <th class="p3-t2-c5">UG/PG</th>
+                                    <th class="p3-t2-c6">No. of Students</th>
+                                    <th class="p3-t2-c7">
+                                        Date of Joining the Institute
+                                    </th>
+                                    <th class="p3-t2-c8">
+                                        Date of Leaving the Institute
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p3-t2-c1"><p>1</p></td>
+                                    <td class="p3-t2-c2">
+                                        <input
+                                            type="text"
+                                            id="teaching_position1"
+                                            name="teaching_position1"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c3">
+                                        <input
+                                            type="text"
+                                            id="employer1"
+                                            name="employer1"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c4">
+                                        <input
+                                            type="text"
+                                            id="course_taught1"
+                                            name="course_taught1"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c5">
+                                        <input
+                                            type="text"
+                                            id="ug_pg1"
+                                            name="ug_pg1"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c6">
+                                        <input
+                                            type="text"
+                                            id="no_of_students1"
+                                            name="no_of_students1"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c7">
+                                        <input
+                                            type="date"
+                                            id="teaching_join_date1"
+                                            name="teaching_join_date1"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c8">
+                                        <input
+                                            type="date"
+                                            id="teaching_leave_date1"
+                                            name="teaching_leave_date1"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t2-c1"><p>2</p></td>
+                                    <td class="p3-t2-c2">
+                                        <input
+                                            type="text"
+                                            id="teaching_position2"
+                                            name="teaching_position2"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c3">
+                                        <input
+                                            type="text"
+                                            id="employer2"
+                                            name="employer2"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c4">
+                                        <input
+                                            type="text"
+                                            id="course_taught2"
+                                            name="course_taught2"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c5">
+                                        <input
+                                            type="text"
+                                            id="ug_pg2"
+                                            name="ug_pg2"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c6">
+                                        <input
+                                            type="text"
+                                            id="no_of_students2"
+                                            name="no_of_students2"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c7">
+                                        <input
+                                            type="date"
+                                            id="teaching_join_date2"
+                                            name="teaching_join_date2"
+                                        />
+                                    </td>
+                                    <td class="p3-t2-c8">
+                                        <input
+                                            type="date"
+                                            id="teaching_leave_date2"
+                                            name="teaching_leave_date2"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t1-c1"><p>3</p></td>
+                                    <td class="p3-t1-c2">
+                                        <input
+                                            type="text"
+                                            id="teaching_position3"
+                                            name="teaching_position3"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c3">
+                                        <input
+                                            type="text"
+                                            id="employer3"
+                                            name="employer3"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c4">
+                                        <input
+                                            type="text"
+                                            id="course_taught3"
+                                            name="course_taught3"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c5">
+                                        <input
+                                            type="text"
+                                            id="ug_pg3"
+                                            name="ug_pg3"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c6">
+                                        <input
+                                            type="text"
+                                            id="no_of_students3"
+                                            name="no_of_students3"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c7">
+                                        <input
+                                            type="date"
+                                            id="teaching_join_date3"
+                                            name="teaching_join_date3"
+                                        />
+                                    </td>
+                                    <td class="p3-t1-c8">
+                                        <input
+                                            type="date"
+                                            id="teaching_leave_date3"
+                                            name="teaching_leave_date3"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+                    <legend>
+                        (D) Research Experience (Post PhD, including Post
+                        Doctoral)
+                        <button
+                            id="add_more_education"
+                            style="
+                                background-color: red;
+                                color: white;
+                                font-size: 12px;
+                                font-family: 'Oswald', sans-serif;
+                                border: transparent;
+                            "
+                        >
+                            Add More
+                        </button>
+                    </legend>
+                    <div class="panel-body">
+                        <table id="research_experience_table" class="dataTable">
+                            <thead>
+                                <tr class="headings">
+                                    <th class="p3-t4-c1">S.No.</th>
+                                    <th class="p3-t4-c2">Position</th>
+                                    <th class="p3-t4-c3">Institute</th>
+                                    <th class="p3-t4-c4">Supervisor</th>
+                                    <th class="p3-t4-c5">Date of Joining</th>
+                                    <th class="p3-t4-c6">Date of Leaving</th>
+                                    <th class="p3-t4-c7">
+                                        Duration (in years & months)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p3-t4-c1"><p>1</p></td>
+                                    <td class="p3-t4-c2">
+                                        <input
+                                            type="text"
+                                            id="research_position1"
+                                            name="research_position1"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c3">
+                                        <input
+                                            type="text"
+                                            id="institute1"
+                                            name="institute1"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c4">
+                                        <input
+                                            type="text"
+                                            id="supervisor1"
+                                            name="supervisor1"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c5">
+                                        <input
+                                            type="date"
+                                            id="research_join_date1"
+                                            name="research_join_date1"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c6">
+                                        <input
+                                            type="date"
+                                            id="research_leave_date1"
+                                            name="research_leave_date1"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c7">
+                                        <input
+                                            type="text"
+                                            id="research_duration1"
+                                            name="research_duration1"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t4-c1"><p>2</p></td>
+                                    <td class="p3-t4-c2">
+                                        <input
+                                            type="text"
+                                            id="research_position2"
+                                            name="research_position2"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c3">
+                                        <input
+                                            type="text"
+                                            id="institute2"
+                                            name="institute2"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c4">
+                                        <input
+                                            type="text"
+                                            id="supervisor2"
+                                            name="supervisor2"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c5">
+                                        <input
+                                            type="date"
+                                            id="research_join_date2"
+                                            name="research_join_date2"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c6">
+                                        <input
+                                            type="date"
+                                            id="research_leave_date2"
+                                            name="research_leave_date2"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c7">
+                                        <input
+                                            type="text"
+                                            id="research_duration2"
+                                            name="research_duration2"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t4-c1"><p>3</p></td>
+                                    <td class="p3-t4-c2">
+                                        <input
+                                            type="text"
+                                            id="research_position3"
+                                            name="research_position3"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c3">
+                                        <input
+                                            type="text"
+                                            id="institute3"
+                                            name="institute3"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c4">
+                                        <input
+                                            type="text"
+                                            id="supervisor3"
+                                            name="supervisor3"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c5">
+                                        <input
+                                            type="date"
+                                            id="research_join_date3"
+                                            name="research_join_date3"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c6">
+                                        <input
+                                            type="date"
+                                            id="research_leave_date3"
+                                            name="research_leave_date3"
+                                        />
+                                    </td>
+                                    <td class="p3-t4-c7">
+                                        <input
+                                            type="text"
+                                            id="research_duration3"
+                                            name="research_duration3"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section style="border: 1px solid #d6e9c6; margin-top: 10px">
+                    <legend>
+                        (E) Industrial Experience
+                        <button
+                            id="add_more_education"
+                            style="
+                                background-color: red;
+                                color: white;
+                                font-size: 12px;
+                                font-family: 'Oswald', sans-serif;
+                                border: transparent;
+                            "
+                        >
+                            Add More
+                        </button>
+                    </legend>
+                    <div class="panel-body">
+                        <table
+                            id="industrial_experience_table"
+                            class="dataTable"
+                        >
+                            <thead>
+                                <tr class="headings">
+                                    <th class="p3-t5-c1">S.No.</th>
+                                    <th class="p3-t5-c2">Organisation</th>
+                                    <th class="p3-t5-c3">Work Profile</th>
+                                    <th class="p3-t5-c4">Date of Joining</th>
+                                    <th class="p3-t5-c5">Date of Leaving</th>
+                                    <th class="p3-t5-c6">
+                                        Duration (in years & months)
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="p3-t5-c1"><p>1</p></td>
+                                    <td class="p3-t5-c2">
+                                        <input
+                                            type="text"
+                                            id="organisation1"
+                                            name="organisation1"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c3">
+                                        <input
+                                            type="text"
+                                            id="work_profile1"
+                                            name="work_profile1"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c4">
+                                        <input
+                                            type="date"
+                                            id="joining_date1"
+                                            name="joining_date1"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c5">
+                                        <input
+                                            type="date"
+                                            id="leaving_date1"
+                                            name="leaving_date1"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c6">
+                                        <input
+                                            type="text"
+                                            id="industrial_duration1"
+                                            name="industrial_duration1"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t5-c1"><p>2</p></td>
+                                    <td class="p3-t5-c2">
+                                        <input
+                                            type="text"
+                                            id="organisation2"
+                                            name="organisation2"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c3">
+                                        <input
+                                            type="text"
+                                            id="work_profile2"
+                                            name="work_profile2"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c4">
+                                        <input
+                                            type="date"
+                                            id="joining_date2"
+                                            name="joining_date2"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c5">
+                                        <input
+                                            type="date"
+                                            id="leaving_date2"
+                                            name="leaving_date2"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c6">
+                                        <input
+                                            type="text"
+                                            id="industrial_duration2"
+                                            name="industrial_duration2"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t5-c1"><p>3</p></td>
+                                    <td class="p3-t5-c2">
+                                        <input
+                                            type="text"
+                                            id="organisation3"
+                                            name="organisation3"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c3">
+                                        <input
+                                            type="text"
+                                            id="work_profile3"
+                                            name="work_profile3"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c4">
+                                        <input
+                                            type="date"
+                                            id="joining_date3"
+                                            name="joining_date3"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c5">
+                                        <input
+                                            type="date"
+                                            id="leaving_date3"
+                                            name="leaving_date3"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c6">
+                                        <input
+                                            type="text"
+                                            id="industrial_duration3"
+                                            name="industrial_duration3"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t5-c1"><p>4</p></td>
+                                    <td class="p3-t5-c2">
+                                        <input
+                                            type="text"
+                                            id="organisation4"
+                                            name="organisation4"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c3">
+                                        <input
+                                            type="text"
+                                            id="work_profile4"
+                                            name="work_profile4"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c4">
+                                        <input
+                                            type="date"
+                                            id="joining_date4"
+                                            name="joining_date4"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c5">
+                                        <input
+                                            type="date"
+                                            id="leaving_date4"
+                                            name="leaving_date4"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c6">
+                                        <input
+                                            type="text"
+                                            id="industrial_duration4"
+                                            name="industrial_duration4"
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="p3-t5-c1"><p>5</p></td>
+                                    <td class="p3-t5-c2">
+                                        <input
+                                            type="text"
+                                            id="organisation5"
+                                            name="organisation5"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c3">
+                                        <input
+                                            type="text"
+                                            id="work_profile5"
+                                            name="work_profile5"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c4">
+                                        <input
+                                            type="date"
+                                            id="joining_date5"
+                                            name="joining_date5"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c5">
+                                        <input
+                                            type="date"
+                                            id="leaving_date5"
+                                            name="leaving_date5"
+                                        />
+                                    </td>
+                                    <td class="p3-t5-c6">
+                                        <input
+                                            type="text"
+                                            id="industrial_duration5"
+                                            name="industrial_duration5"
+                                        />
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+                <br />
+                <h4 style="margin: 10px">
+                    4. Area(s) of Specialization and Current Area(s) of Research
+                </h4>
+                <div
+                    class="bottomsection"
+                    style="
+                        display: flex;
+                        flex-direction: row;
+                        justify-content: space-between;
+                    "
+                >
+                    <div class="panel-body" style="width: 50%; margin: 10px">
+                        <div
+                            class="specialization-box"
+                            style="
+                                background-color: white;
+                                padding: 15px;
+                                width: 90%;
+                            "
+                        >
+                            <h3>Areas of Specialization</h3>
+                            <textarea
+                                id="areas-of-specialization"
+                                name="areas-of-specialization"
+                                style="
+                                    height: 150px;
+                                    max-width: 100%;
+                                    min-width: 100%;
+                                "
+                                maxlength="500"
+                            ></textarea>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="width: 50%; margin: 10px">
+                        <div
+                            class="research-area-box"
+                            style="
+                                background-color: white;
+                                padding: 15px;
+                                width: 90%;
+                            "
+                        >
+                            <h3>Current Area of Research</h3>
+                            <textarea
+                                id="current-area-of-research"
+                                name="current-area-of-research"
+                                style="
+                                    height: 150px;
+                                    width: 100%;
+                                    max-width: 100%;
+                                    min-width: 100%;
+                                "
+                                maxlength="500"
+                            ></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="bottom-buttons">
+                    <button
+                        id="previous-button"
+                        onclick="window.location.href = './page2.html'"
+                        class="prevButton"
+                    >
+                        &larr;
+                    </button>
+                    <button
+                        type="button"
+                        onclick="submit_page3()"
+                        class="nextButton"
+                    >
+                        Save & Next
+                    </button>
+                </div>
+            </div>
+        </main>
+    </body>
+</html>
