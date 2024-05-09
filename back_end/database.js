@@ -495,8 +495,21 @@ export async function submit_page9(email,consent,declared )
 }
 
 export async function get_page(email, table) {
-	const querystring = ` SELECT * FROM ${table} WHERE email=?`;
-	const [result] = await pool.query(querystring, [email]);
+	const querystring = `
+		SELECT * FROM ${table} WHERE email=?
+	`;
+	const querystring2 = `
+		SELECT First_Name, Last_Name FROM users WHERE email=?
+	`;
+	var result = [];
+	
+	result.push((await pool.query(querystring, [email]))[0][0]);
+	result.push((await pool.query(querystring2, [email]))[0][0]);
 	return result;
 }
 
+export async function get_pdf_info(email) {
+	var querystring = `SELECT * FROM (SELECT p.*, u.date_of_application, u.application_id, u.category FROM page_1 as p, user as u WHERE u.email = p.email) as x NATURAL JOIN page_2 NATURAL JOIN page_3 NATURAL JOIN page_4 NATURAL JOIN page_5 NATURAL JOIN page_6 NATURAL JOIN page_7 NATURAL JOIN page_8 WHERE email=?`;
+	const [result] = await pool.query(querystring, [email]);
+	return result;
+}

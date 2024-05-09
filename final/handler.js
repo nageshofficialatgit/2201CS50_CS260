@@ -30,18 +30,18 @@ async function submit_page1() {
     const DOA = document.getElementById("dateOfApplication").value
     const APP_NO = document.getElementById("applicationNumber").value
     const post_applied = document.getElementById("postApplied").value
-    const personal_details = {
-        firstName: document.getElementById("firstName").value,
-        middleName: document.getElementById("middleName").value,
-        lastName: document.getElementById("lastName").value,
-        nationality: document.getElementById("nationality").value,
-        dob: document.getElementById("dob").value,
-        gender: document.getElementById("gender").value,
-        maritalStatus: document.getElementById("maritalStatus").value,
-        category: document.getElementById("category").value,
-        idProofType: document.getElementById("idProofType").value,
-        fatherName: document.getElementById("fatherName").value
-    }
+    const personal_details = [
+        document.getElementById("firstName").value,
+      document.getElementById("middleName").value,
+        document.getElementById("lastName").value,
+      document.getElementById("nationality").value,
+        document.getElementById("dob").value,
+       document.getElementById("gender").value,
+         document.getElementById("maritalStatus").value,
+       document.getElementById("category").value,
+        document.getElementById("idProofType").value,
+         document.getElementById("fatherName").value
+    ]
     const Mobile = document.getElementById("mobileNumber").value
     const alternate_mobile = document.getElementById("alternateMobileNumber").value
     const alternate_email = document.getElementById("alternateEmail").value
@@ -523,7 +523,66 @@ async function submit_page9() {
     }
     
 }
+async function get_page1() {
+   
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_1/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+           
+        });
 
+        const data = await response.json();
+        console.log(data); // Log the response data received from the server
+
+        // Assuming the server returns a message indicating the signup status
+        document.getElementById("dateOfApplication").value = data[0].DOA.substring(0,10)
+         document.getElementById("applicationNumber").value =data[0].APP_NO
+        document.getElementById("postApplied").value = data[0].post_applied
+   
+            document.getElementById("firstName").value = data[0].personal_details[0]
+            document.getElementById("middleName").value = data[0].personal_details[1]
+            document.getElementById("lastName").value = data[0].personal_details[2]
+            document.getElementById("nationality").value = data[0].personal_details[3]
+            document.getElementById("dob").value = data[0].personal_details[4]
+            document.getElementById("gender").value = data[0].personal_details[5]
+            document.getElementById("maritalStatus").value = data[0].personal_details[6]
+            document.getElementById("category").value = data[0].personal_details[7]
+            document.getElementById("idProofType").value = data[0].personal_details[8]
+            document.getElementById("fatherName").value = data[0].personal_details[9]
+        
+        document.getElementById("mobileNumber").value  = data[0].Mobile
+         document.getElementById("alternateMobileNumber").value = data[0].alternate_mobile 
+         document.getElementById("alternateEmail").value  = data[0].alternate_email
+         document.getElementById("landlineNumber").value = data[0].landline_no
+        
+            document.getElementById("correspondenceStreet").value = data[0].correspondence_address[0]
+            document.getElementById("correspondenceCity").value = data[0].correspondence_address[1]
+            document.getElementById("correspondenceDistrict").value = data[0].correspondence_address[2]
+            document.getElementById("correspondenceState").value = data[0].correspondence_address[3]
+            document.getElementById("correspondenceCountry").value = data[0].correspondence_address[4]
+        
+            document.getElementById("permanentStreet").value =  data[0].permanent_address[0]
+            document.getElementById("permanentCity").value =  data[0].permanent_address[1]
+            document.getElementById("permanentDistrict").value =  data[0].permanent_address[2]
+            document.getElementById("permanentState").value =  data[0].permanent_address[3]
+            document.getElementById("permanentCountry").value =  data[0].permanent_address[4]
+        
+            document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+            document.getElementById("username").innerHTML =   data[1].First_Name + " " + data[1].Last_Name;
+    
+}
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
 async function get_page2(){
     try {
         const response = await fetch("http://localhost:8080/api/get/page_2/"+ localStorage.getItem("email") , {
@@ -573,7 +632,7 @@ async function get_page2(){
     setTableData(document.getElementsByTagName('table')[0], data[0].acadmic_details_school);
     setTableData(document.getElementsByTagName('table')[1], data[0].additional_edu);
 
-
+    document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
    
 }
     // do validaton here  
@@ -583,4 +642,279 @@ async function get_page2(){
     }
 
 }
+async function get_page3() {
+    
+
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_3/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+        });
+
+        const data = await response.json();
+            
+        
+        document.getElementById("present_position").value = data[0].present_employment[0]
+            document.getElementById("present_organization").value = data[0].present_employment[1]
+            document.getElementById("present_status").value = data[0].present_employment[2]
+            document.getElementById("present_join_date").value = data[0].present_employment[3]
+            document.getElementById("present_leave_date").value = data[0].present_employment[4]
+            document.getElementById("present_duration").value = data[0].present_employment[5]
+        
+    
+            document.getElementById("areas-of-specialization").value  = data[0].area_spec
+            document.getElementById("current-area-of-research").value = data[0].curr_research
+        
+        
+        setTableData(document.getElementsByTagName('table')[0], data[0].employ_history);
+         setTableData(document.getElementsByTagName('table')[1], data[0].teach_exp);
+       setTableData(document.getElementsByTagName('table')[2], data[0].research_exp);
+       setTableData(document.getElementsByTagName('table')[3], data[0].industrial_exp);
+      
+       document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+      
+    
+        // Assuming the server returns a message indicating the signup status
+        
+    }
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+
+async function get_page4() {
+   
+   
+
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_4/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+        });
+
+        const data = await response.json();
+       // console.log(data); // Log the response data received from the server
+       
+         document.getElementById("intl_journal_papers").value = data[0].summary_publication[0]
+       document.getElementById("natl_journal_papers").value = data[0].summary_publication[1]
+       document.getElementById("intl_conf_papers").value = data[0].summary_publication[2]
+       document.getElementById("natl_conf_papers").value = data[0].summary_publication[3]
+       document.getElementById("patents").value = data[0].summary_publication[4]
+       document.getElementById("books").value = data[0].summary_publication[5]
+       document.getElementById("book_chapters").value = data[0].summary_publication[5]
+          
+       
+   
+      
+       
+       
+       
+       
+      setTableData(document.getElementsByTagName('table')[0], data[0].best_publication);
+         setTableData(document.getElementsByTagName('table')[1], data[0].patent);
+                 setTableData(document.getElementsByTagName('table')[2], data[0].book);
+      setTableData(document.getElementsByTagName('table')[3], data[0].book_chapter);
+        document.getElementById("google_scholar_link").value   = data[0].scholar_link
+
+        document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+    }
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+async function get_page5() {
+    
+
+   
+   
+
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_5/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+        });
+
+        const data = await response.json();
+       // console.log(data); // Log the response data received from the server
+       
+       
+       
+       
+       
+         setTableData(document.getElementsByTagName('table')[0], data[0].membership);
+       setTableData(document.getElementsByTagName('table')[1], data[0].training);
+        setTableData(document.getElementsByTagName('table')[2], data[0].award);
+         setTableData(document.getElementsByTagName('table')[3], data[0].spon_project);
+        setTableData(document.getElementsByTagName('table')[4], data[0].cons_project);
+        document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+    }
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+async function get_page6() {
+    
+
+   
+    
+    
+   
+   
+
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_6/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+        });
+
+        const data = await response.json();
+        //console.log(data); // Log the response data received from the server
+       
+        // Assuming the server returns a message indicating the signup status
+         
+    setTableData(document.getElementsByTagName('table')[0], data[0].thesis);
+  setTableData(document.getElementsByTagName('table')[1], data[0].mtech);
+     setTableData(document.getElementsByTagName('table')[2], data[0].btech);
+     document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+        
+    }
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+async function get_page7() {
+   
+   
+
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_7/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+          
+        });
+
+        const data = await response.json();
+       // console.log(data); // Log the response data received from the server
+        
+        // Assuming the server returns a message indicating the signup status
+         document.getElementById("special_research").value   = data[0].research
+         document.getElementById("t2").value  = data[0].course
+          document.getElementById("t3").value  = data[0].other
+         document.getElementById("t4").value  = data[0].edtor
+          document.getElementById("t5").value  = data[0].journal
+        document.getElementById("t6").value  = data[0].conference
+        document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+        
+    }
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+async function get_page8() {
+   
+   
+
+    try {
+        const response = await fetch("http://localhost:8080/api/get/page_8/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+        });
+
+        const data = await response.json();
+      //  console.log(data); // Log the response data received from the server
+        
+        // Assuming the server returns a message indicating the signup status
+       
+        setTableData(document.getElementsByTagName('table')[0], data[0].referral);
+        document.getElementsByClassName("welcome-name")[0].innerHTML = "Welcome : " + data[1].First_Name + " " + data[1].Last_Name;
+    }
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+async function get_page10() {
+   
+    console.log("nasa")
+
+    try {
+        const response = await fetch("/get/get_pdf_info/"+ localStorage.getItem("email") , {
+            method: "GET",
+            cache: "no-cache",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            
+        });
+
+        const data = await response.json();
+        console.log(data) ;
+      //  console.log(data); // Log the response data received from the server
+    document.getElementById("page_1tag1").innerHTML = data[0].personal_details[0]
+        // Assuming the server returns a message indicating the signup status
+       
+      
+    }
+    
+    // do validaton here  
+    catch (error) {
+        console.error("Error:", error);
+       
+    }
+    
+}
+
+if(window.location.href.includes( "page1" )){ get_page1() }
 if(window.location.href.includes( "page2" )){ get_page2() }
+if(window.location.href.includes( "page3" )){ get_page3() }
+if(window.location.href.includes( "page4" )){ get_page4() }
+if(window.location.href.includes( "page5" )){ get_page5() }
+if(window.location.href.includes( "page6" )){ get_page6() }
+if(window.location.href.includes( "page7" )){ get_page7() }
+if(window.location.href.includes( "page8" )){ get_page8() }
+if(window.location.href.includes( "page0" )){get_page10()}

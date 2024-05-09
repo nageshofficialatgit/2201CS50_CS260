@@ -19,6 +19,32 @@
         />
         <title>Page 1</title>
     </head>
+
+    <style>
+        /* Style for the overlay */
+        .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+        }
+        
+        /* Style for the popup box */
+        .popup {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border-radius: 5px;
+          z-index: 1000;
+        }
+      </style>
     <body>
         <header>
             <div class="title">
@@ -36,9 +62,22 @@
                         <div class="welcome-name" style="font-size: 20px">
                             Welcome : John Doe
                         </div>
-
+                        <button id="popupBtn"
+                        style="
+                        position: relative;
+                        left: 30%;
+                        float: right;
+                        padding: 6px 12px;
+                        border: 1px transparent;
+                   margin-right: 50px ;
+                        background-color: #5bc0de;
+                        color: white;"
+                        >Change Password</button>
+                        
                         <div class="logout">
+                            
                             <div class="Dashboard">
+                                
                                 <div class="Logoutbutton" >
                                     <a   onclick="log_out()"
                                         href="#"
@@ -297,7 +336,7 @@
                                                 type="file"
                                                 id="idProofUpload"
                                                 name="idProofUpload"
-                                                accept=".pdf"
+                                                
                                                 required
                                             />
                                         </div>
@@ -331,14 +370,22 @@
                                                 src=""
                                                 alt="profile picture preview"
                                             />
-                                        </div>
-                                        <input
+                                        </div><form action="https://localhost:8080/uploadProfilePicture"
+                                        enctype="multipart/form-data" method="POST"> 
+                                            <span>Upload Profile Picture:</span> 
+                                            <input
                                             type="file"
                                             id="photoUpload"
                                             name="photoUpload"
                                             accept=".jpg, .jpeg, .png"
                                             required
-                                        />
+                                        /> <br> 
+                                            <input type="submit" value="submit"> 
+                                           
+                                           
+
+                                        </form> 
+                                       
                                     </div>
                                 </div>
                             </div>
@@ -535,6 +582,85 @@
                     </div>
                 </form>
             </div>
+            <div class="panel-body">
+                <div class="overlay" id="overlay">
+                  <div class="popup">
+                      <form >
+                          <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h2>Change Password</h2>
+                                <hr>
+                              </div>
+                              <div class="modal-body">
+                                  <h3>Change Password For : <font color="#3377a0"><strong id="username">John Doe</strong></font></h3>
+                                  <input type="hidden" name="fid" id="fid" value="711">
+                                
+                                      <label>Current Password</label>
+                                      <br>
+                                      
+                                      <input id="currentpwd" type="password" name="cr_password" placeholder="Current Password" class="form-control" style="width: 100%;">
+                                      <br>
+                                 
+                                      <label>New Password</label>
+                                      <br>
+                                      <input id="newpwd" type="password" name="n_password" placeholder="New Password" class="form-control"  style="width: 100%;">
+                                      <br>
+                                 
+                                      <label>Confirm New Password</label>
+                                      <br>
+                                      <input id="confirmpwd" type="password" name="cn_password" placeholder="New Confirm Password" class="form-control"  style="width: 100%;">
+                                      <br>
+                              </div>
+                              <br>
+                              <div class="modal-footer">
+                                  <button class="btn btn-danger" data-dismiss="modal" 
+                                  style="
+                                    float: right;
+                                    padding: 6px 12px;
+                                    border: 1px transparent;
+                                    margin: 10px;
+                                    background-color: red;
+                                    color: white;
+                                ">Close</button>
+                                  <button type="submit" name="submit" value="Submit" class="btn btn-info" 
+                                  style="float: right;
+                                  padding: 6px 12px;
+                                  border: 1px transparent;
+                                  margin: 10px;
+                                  background-color: #5bc0de;
+                                  color: white;" >Submit</button>
+                              </div>
+                          </div>
+                          </div>
+                          </form>
+                    
+                  </div>
+                </div>
+            </div>
+            <script>
+                // Get references to the button and popup elements
+                const popupBtn = document.getElementById('popupBtn');
+                const overlay = document.getElementById('overlay');
+                const closeBtn = document.getElementById('btn btn-danger');
+                
+                // Function to show the popup
+                function openPopup() {
+                overlay.style.display = 'block';
+                }
+                
+                // Function to close the popup
+                function closePopup() {
+                overlay.style.display = 'none';
+                }
+                
+                // Event listener for the popup button
+                popupBtn.addEventListener('click', openPopup);
+                
+                // Event listener for the close button
+                closeBtn.addEventListener('click', closePopup);
+            </script>
+
         </main>
     </body>
 </html>

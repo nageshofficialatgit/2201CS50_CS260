@@ -39,9 +39,9 @@ async function submit_signup() {
     const category = document.getElementById("Category").value;
     const password = document.getElementById("pwd").value;
     const retypePassword = document.getElementById("rpwd").value;
-    const enteredCaptcha = document.getElementById("ecaptcha").value;
+   // const enteredCaptcha = document.getElementById("ecaptcha").value;
     // Basic validation, you might want to add more checks
-    if (!firstName || !lastName || !email || !category || !password || !retypePassword || !enteredCaptcha) {
+    if (!firstName || !lastName || !email || !category || !password || !retypePassword ) {
         alert("Please fill in all fields");
         return;
     }
@@ -76,6 +76,7 @@ async function submit_signup() {
         if (data.message === "Signup successful") {
             // Redirect the user to the login page or another page
             localStorage.setItem( "email" , email )
+           
             window.location.href = "page1.html";
         } else {
             // Display an error message to the user
