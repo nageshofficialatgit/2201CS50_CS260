@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="./css/p2.css" />
+        <script src="./handler.js" defer></script>
+        <link
+            href="https://fonts.googleapis.com/css?family=Oswald"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css?family=Noto+Serif&amp;display=swap"
+            rel="stylesheet"
+        />
+        <title>Page 1</title>
+    </head>
+
+    <style>
+        /* Style for the overlay */
+        .overlay {
+          display: none;
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.5);
+          z-index: 999;
+        }
+        
+        /* Style for the popup box */
+        .popup {
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background-color: white;
+          padding: 20px;
+          border-radius: 5px;
+          z-index: 1000;
+        }
+      </style>
+    <body>
+        <header>
+            <div class="title">
+                <h1>भारतीय प्रौद्योगिकी संस्थान पटना</h1>
+                <h1>Indian Institute of Technology Patna</h1>
+            </div>
+        </header>
+        <main>
+            <div class="Blinkingtext">
+                <h2>Application for Faculty Position</h2>
+            </div>
+            <div class="box">
+                <div class="row">
+                    <div class="welcome">
+                        <div class="welcome-name" style="font-size: 20px">
+                            Welcome : John Doe
+                        </div>
+                        <button id="popupBtn"
+                        style="
+                        position: relative;
+                        left: 30%;
+                        float: right;
+                        padding: 6px 12px;
+                        border: 1px transparent;
+                   margin-right: 50px ;
+                        background-color: #5bc0de;
+                        color: white;"
+                        >Change Password</button>
+                        
+                        <div class="logout">
+                            
+                            <div class="Dashboard">
+                                
+                                <div class="Logoutbutton" >
+                                    <a   onclick="log_out()"
+                                        href="#"
+                                        style="
+                                            color: #eee;
+                                            font-family: 'Helvetica Neue',
+                                                Helvetica, Arial, sans-serif;
+                                            font-size: 12px;
+                                            padding: 5px 10px;
+                                            text-decoration: none;
+                                        "
+                                        >Logout</a
+                                    >
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form>
+                    <div class="twoInARow">
+                        <div class="inputBox">
+                            <label for="advertisementNumber"
+                                >Advertisement Number *</label
+                            >
+                            <select
+                                id="advertisementNumber"
+                                name="advertisementNumber"
+                                class="selection"
+                            >
+                                <!-- Options for Advertisement Number -->
+                            </select>
+                        </div>
+                        <div class="inputBox">
+                            <label for="dateOfApplication"
+                                >Date of Application:</label
+                            >
+                            <input
+                                type="date"
+                                id="dateOfApplication"
+                                name="dateOfApplication"
+                               
+                                
+                            />
+                        </div>
+                    </div>
+                    <div class="twoInARow">
+                        <div class="inputBox">
+                            <label for="applicationNumber"
+                                >Application Number:</label
+                            >
+                            <input
+                                type="text"
+                                id="applicationNumber"
+                                name="applicationNumber"
+                                value=""
+                                disabled
+                            />
+                        </div>
+                        <div class="inputBox">
+                            <label for="postApplied">Post Applied For *</label>
+                            <select
+                                id="postApplied"
+                                name="postApplied"
+                                class="selection"
+                            >
+                                <option value="Select">Select</option>
+                                <option value="Professor">Professor</option>
+                                <option value="Associate Professor">
+                                    Associate Professor
+                                </option>
+                                <option value="Assistant Professor Grade 1">
+                                    Assistant Professor Grade 1
+                                </option>
+                                <option value="Assistant Professor Grade 2">
+                                    Assistant Professor Grade 2
+                                </option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="twoInARow">
+                        <div class="inputBox">
+                            <label for="department">Department *</label>
+                            <select
+                                id="department"
+                                name="department"
+                                class="selection"
+                            >
+                                <!-- Options for Department -->
+                            </select>
+                        </div>
+                    </div>
+                    <br />
+                    <hr style="border-style: dashed" />
+                    <br />
+
+                    <section>
+                        <legend>1. Personal Details</legend>
+                        <div class="p1-s1">
+                            <div class="panel-body">
+                                <div class="p1-c1">
+                                    <div class="twoInARow">
+                                        <div class="inputBox">
+                                            <label for="firstName"
+                                                >First Name:</label
+                                            >
+                                            <input
+                                                type="text"
+                                                id="firstName"
+                                                name="firstName"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="inputBox">
+                                            <label for="middleName"
+                                                >Middle Name:</label
+                                            >
+                                            <input
+                                                type="text"
+                                                id="middleName"
+                                                name="middleName"
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="twoInARow">
+                                        <div class="inputBox">
+                                            <label for="lastName"
+                                                >Last Name:</label
+                                            >
+                                            <input
+                                                type="text"
+                                                id="lastName"
+                                                name="lastName"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="inputBox">
+                                            <label for="nationality"
+                                                >Nationality:</label
+                                            >
+                                            <select
+                                                id="nationality"
+                                                name="nationality"
+                                                default="Indian"
+                                                class="selection"
+                                            >
+                                                <option value="Select">
+                                                    Select
+                                                </option>
+                                                <option value="Indian">
+                                                    Indian
+                                                </option>
+                                                <option value="OCI">OCI</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="twoInARow">
+                                        <div class="inputBox">
+                                            <label for="dob">DOB:</label>
+                                            <input
+                                                type="date"
+                                                id="dob"
+                                                name="dob"
+                                                required
+                                            />
+                                        </div>
+                                        <div class="inputBox">
+                                            <label for="gender">Gender:</label>
+                                            <select
+                                                id="gender"
+                                                name="gender"
+                                                class="selection"
+                                            >
+                                                <option value="Male">
+                                                    Male
+                                                </option>
+                                                <option value="Female">
+                                                    Female
+                                                </option>
+                                                <option value="Other">
+                                                    Other
+                                                </option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="twoInARow">
+                                        <div class="inputBox">
+                                            <label for="maritalStatus"
+                                                >Marital Status:</label
+                                            >
+                                            <select
+                                                id="maritalStatus"
+                                                name="maritalStatus"
+                                                class="selection"
+                                            >
+                                                <option value="Single">
+                                                    Single
+                                                </option>
+                                                <option value="Married">
+                                                    Married
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="inputBox">
+                                            <label for="category"
+                                                >Category:</label
+                                            >
+                                            <select
+                                                id="category"
+                                                name="category"
+                                                class="selection"
+                                            >
+                                                <option value="General">
+                                                    General
+                                                </option>
+                                                <option value="OBC">OBC</option>
+                                                <option value="SC">SC</option>
+                                                <option value="ST">ST</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="twoInARow">
+                                        <div class="inputBox">
+                                            <label for="idProofType"
+                                                >ID Proof Type:</label
+                                            >
+                                            <select
+                                                id="idProofType"
+                                                name="idProofType"
+                                                class="selection"
+                                            >
+                                                <option value="Aadhaar">
+                                                    Aadhaar
+                                                </option>
+                                                <option value="Passport">
+                                                    Passport
+                                                </option>
+                                                <option value="DrivingLicense">
+                                                    Driving License
+                                                </option>
+                                                <option value="PANCard">
+                                                    PAN Card
+                                                </option>
+                                                <option value="RationCard">
+                                                    Ration Card
+                                                </option>
+                                                <option value="VoterID">
+                                                    Voter ID
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <div class="inputBox">
+                                            <label for="idProofUpload"
+                                                >Upload ID Proof:</label
+                                            >
+                                            <input
+                                                type="file"
+                                                id="idProofUpload"
+                                                name="idProofUpload"
+                                                
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                    <div class="twoInARow">
+                                        <div class="inputBox">
+                                            <label for="fatherName"
+                                                >Father's Full Name:</label
+                                            >
+                                            <input
+                                                type="text"
+                                                id="fatherName"
+                                                name="fatherName"
+                                                required
+                                            />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="p1-c2">
+                                    <div class="inputBox">
+                                        <div
+                                            style="
+                                                width: 100px;
+                                                height: 120px;
+                                                border: 0.25px solid
+                                                    rgb(101, 101, 101);
+                                                border-radius: 3.5px;
+                                            "
+                                        >
+                                            <img
+                                                src=""
+                                                alt="profile picture preview"
+                                            />
+                                        </div><form action="https://localhost:8080/uploadProfilePicture"
+                                        enctype="multipart/form-data" method="POST"> 
+                                            <span>Upload Profile Picture:</span> 
+                                            <input
+                                            type="file"
+                                            id="photoUpload"
+                                            name="photoUpload"
+                                            accept=".jpg, .jpeg, .png"
+                                            required
+                                        /> <br> 
+                                            <input type="submit" value="submit"> 
+                                           
+                                           
+
+                                        </form> 
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <br />
+                    <section>
+                        <div
+                            class="panel-body"
+                            style="
+                                display: flex;
+                                flex-direction: row;
+                                justify-content: space-around;
+                            "
+                        >
+                            <div class="Col1" style="width: 50%">
+                                <h2>Correspondence Address</h2>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="correspondenceStreet"
+                                            name="correspondenceStreet"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <!-- Add more input fields or textareas for other address fields -->
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="correspondenceCity"
+                                            name="correspondenceCity"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="correspondenceDistrict"
+                                            name="correspondenceDistrict"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="correspondenceState"
+                                            name="correspondenceState"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="correspondenceCountry"
+                                            name="correspondenceCountry"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="Col2" style="width: 50%">
+                                <h2>Permanent Address</h2>
+
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="permanentStreet"
+                                            name="permanentStreet"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <!-- Add more input fields or textareas for other address fields -->
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="permanentCity"
+                                            name="permanentCity"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="permanentDistrict"
+                                            name="permanentDistrict"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="permanentState"
+                                            name="permanentState"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                                <div class="oneInARow">
+                                    <div class="inputBox">
+                                        <input
+                                            type="text"
+                                            id="permanentCountry"
+                                            name="permanentCountry"
+                                            placeholder=""
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <br />
+                    <div class="panel-body">
+                        <div class="twoInARow">
+                            <div class="inputBox">
+                                <label for="mobileNumber">Mobile *</label>
+                                <input
+                                    type="tel"
+                                    id="mobileNumber"
+                                    name="mobileNumber"
+                                    required
+                                />
+                            </div>
+                            <div class="inputBox">
+                                <label for="email">Email ID:</label>
+                                <input
+                                    type="email"
+                                    id="email"
+                                    name="email"
+                                    readonly
+                                />
+                            </div>
+                        </div>
+                        <div class="twoInARow">
+                            <div class="inputBox">
+                                <label for="alternateMobileNumber"
+                                    >Alternate Mobile Number:</label
+                                >
+                                <input
+                                    type="tel"
+                                    id="alternateMobileNumber"
+                                    name="alternateMobileNumber"
+                                />
+                            </div>
+                            <div class="inputBox">
+                                <label for="alternateEmail"
+                                    >Alternate Email ID:</label
+                                >
+                                <input
+                                    type="email"
+                                    id="alternateEmail"
+                                    name="alternateEmail"
+                                />
+                            </div>
+                        </div>
+                        <div class="twoInARow">
+                            <div class="inputBox">
+                                <label for="landlineNumber"
+                                    >Landline Number:</label
+                                >
+                                <input
+                                    type="tel"
+                                    id="landlineNumber"
+                                    name="landlineNumber"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="bottom-buttons">
+                        <button
+                            type="button"
+                            onclick="submit_page1()"
+                            class="nextButton"
+                        >
+                            Save & Next
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="panel-body">
+                <div class="overlay" id="overlay">
+                  <div class="popup">
+                      <form >
+                          <div class="modal-dialog">
+                          <div class="modal-content">
+                              <div class="modal-header">
+                                  <h2>Change Password</h2>
+                                <hr>
+                              </div>
+                              <div class="modal-body">
+                                  <h3>Change Password For : <font color="#3377a0"><strong id="username">John Doe</strong></font></h3>
+                                  <input type="hidden" name="fid" id="fid" value="711">
+                                
+                                      <label>Current Password</label>
+                                      <br>
+                                      
+                                      <input id="currentpwd" type="password" name="cr_password" placeholder="Current Password" class="form-control" style="width: 100%;">
+                                      <br>
+                                 
+                                      <label>New Password</label>
+                                      <br>
+                                      <input id="newpwd" type="password" name="n_password" placeholder="New Password" class="form-control"  style="width: 100%;">
+                                      <br>
+                                 
+                                      <label>Confirm New Password</label>
+                                      <br>
+                                      <input id="confirmpwd" type="password" name="cn_password" placeholder="New Confirm Password" class="form-control"  style="width: 100%;">
+                                      <br>
+                              </div>
+                              <br>
+                              <div class="modal-footer">
+                                  <button class="btn btn-danger" data-dismiss="modal" 
+                                  style="
+                                    float: right;
+                                    padding: 6px 12px;
+                                    border: 1px transparent;
+                                    margin: 10px;
+                                    background-color: red;
+                                    color: white;
+                                ">Close</button>
+                                  <button type="submit" name="submit" value="Submit" class="btn btn-info" 
+                                  style="float: right;
+                                  padding: 6px 12px;
+                                  border: 1px transparent;
+                                  margin: 10px;
+                                  background-color: #5bc0de;
+                                  color: white;" >Submit</button>
+                              </div>
+                          </div>
+                          </div>
+                          </form>
+                    
+                  </div>
+                </div>
+            </div>
+            <script>
+                // Get references to the button and popup elements
+                const popupBtn = document.getElementById('popupBtn');
+                const overlay = document.getElementById('overlay');
+                const closeBtn = document.getElementById('btn btn-danger');
+                
+                // Function to show the popup
+                function openPopup() {
+                overlay.style.display = 'block';
+                }
+                
+                // Function to close the popup
+                function closePopup() {
+                overlay.style.display = 'none';
+                }
+                
+                // Event listener for the popup button
+                popupBtn.addEventListener('click', openPopup);
+                
+                // Event listener for the close button
+                closeBtn.addEventListener('click', closePopup);
+            </script>
+
+        </main>
+    </body>
+</html>

@@ -2,9 +2,9 @@ import mysql from "mysql2";
 
 const pool = mysql
   .createPool({
-    host: "127.0.0.1",
+    host: "database",
     port: 3306,
-    user: "root",
+    user : "root",
     password: "2582004",
     database: "kitkat_take_a_break",
   })
@@ -509,7 +509,7 @@ export async function get_page(email, table) {
 }
 
 export async function get_pdf_info(email) {
-	var querystring = `SELECT * FROM (SELECT p.*, u.date_of_application, u.application_id, u.category FROM page_1 as p, user as u WHERE u.email = p.email) as x NATURAL JOIN page_2 NATURAL JOIN page_3 NATURAL JOIN page_4 NATURAL JOIN page_5 NATURAL JOIN page_6 NATURAL JOIN page_7 NATURAL JOIN page_8 WHERE email=?`;
+	var querystring = `SELECT * FROM (SELECT p.*, u.Category FROM page_1 as p, users as u WHERE u.Email = p.email) as x NATURAL JOIN page_2 NATURAL JOIN page_3 NATURAL JOIN page_4 NATURAL JOIN page_5 NATURAL JOIN page_6 NATURAL JOIN page_7 NATURAL JOIN page_8 WHERE email=?`;
 	const [result] = await pool.query(querystring, [email]);
 	return result;
 }

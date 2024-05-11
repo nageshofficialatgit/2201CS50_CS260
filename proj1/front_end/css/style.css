@@ -1,0 +1,168 @@
+body {
+    margin: 0;
+    background-color: lightgray;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    background-color: #f7ffff;
+}
+
+.title h1 {
+    margin: 5px;
+    text-align: center;
+    color: #414002!important;
+    font-weight: bold;
+    font-family: 'Oswald', sans-serif!important;
+    font-size: 2.2em;
+    margin-top: 0px;
+}
+
+.Blinkingtext {
+    line-height: 1.1;
+    margin-top: 20px;
+    font-size: 16px;
+    color: rgb(225, 4, 37);
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    font-family: "Noto Serif", serif;
+    animation: blinker 1s linear infinite;
+}
+
+@keyframes blinker {
+    50% {
+        opacity: 0;
+    }
+}
+
+.box {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: fit-content;
+    margin: 10px;
+    padding: 20px;
+    row-gap: 10vh;
+    box-shadow: 0px 1px 30px 1px #284d7a;
+    border: solid black 2px;
+    border-radius: 7.5px;
+    background-color: #f7ffff;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo {
+    /* min-width: 45vw; */
+    height: 35vh;
+    aspect-ratio: 1 / 1;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40vw;
+    gap: 20px;
+}
+
+.form > h1 {
+    font-size: 24px;
+    text-decoration: underline;
+}
+
+.inputbox {
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    background-color: #284d7a;
+}
+
+.inputbox > img {
+    filter: invert(1);
+    height: 25px;
+    width: 25px;
+    margin: 5px;
+}
+
+.inputbox > input {
+    width: 100%;
+    padding: 10px;
+}
+
+.form button {
+    padding: 7.5px;
+    border: 0;
+    color: white;
+}
+
+.buttonRow {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    row-gap: 20px;
+    justify-content: space-between;
+}
+
+.loginButton {
+    background-color: green;
+}
+
+.resetButton {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.resetButton > button {
+    background-color: red;
+    transform: translateY(calc(-100% - 20px));
+}
+
+.signup {
+    color: green;
+    font-weight: 700;
+}
+
+.signupButton {
+    background-color: #284d7a;
+}
+
+@media screen and (max-width: 767.5px) {
+    .form {
+        width: 100%;
+    }
+
+    .loginButton {
+        width: 100%;
+    }
+
+    .resetButton > button {
+        transform: none;
+    }
+}
+
+
+.nextButton {
+    float: right;
+    padding: 6px 12px;
+    border: 1px transparent;
+    margin: 20px;
+    background-color: #5cb85c;
+    color: white;
+}
+
+.nextButton:hover {
+	background-color: #6cc86c;
+}
